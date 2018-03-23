@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.dgit.manager">
+	<logger name="com.dgit.controller">
 		<level value="info" />
 	</logger>
 	
