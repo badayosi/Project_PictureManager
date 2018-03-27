@@ -27,9 +27,37 @@
 	
 	//정규식 체크_임시
 	function checkReg(){
-		var id = $("#id").val();
+		var id = $("#addId").val();
 		var pw = $("#pw").val();
 		var name = $("#name").val();
+		
+		var pname=/^[가-힣]{2,5}$/;
+        var pid=/^[a-z]+[a-z0-9]{5,15}$/;
+        var ppw =/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{7,20}$/;
+        
+        if(!pname.test(name)){
+        	alert("이름은 2~5글자, 한글만 가능합니다.");
+        	initInput();
+        	return false;
+        }
+        if(!pid.test(id)){
+        	alert("아이디는 6글자 이상, 영문/숫자만 가능합니다.");
+        	initInput();
+        	return false;
+        }
+        if(!ppw.test(pw)){
+        	alert("비밀번호는 8~20글자, 영어/숫자/특수문자(~!@#$%^&*)만 가능합니다.");
+        	initInput();
+        	return false;
+        }
+        
+        return true;
+	}
+	
+	function initInput(){
+		$("#addId").val("");
+		$("#pw").val("");
+		$("#name").val("");
 	}
 	
 	$(function(){
@@ -57,11 +85,17 @@
 		$("#pwConfirm").focusout(function(){
 			checkPw();
 		});
+		
+		$("#userjoin").submit(function(){
+			if(!checkReg())
+				return false;
+		});
+		
 	});
 </script>
 </head>
 <body>
-	<form action="join" method="post">
+	<form action="join" method="post" id="userjoin">
 		<label>아이디</label>
 		<input type="text" name="id" id="addId"><input type="button" value="중복확인" id="idChecker">
 		<br>

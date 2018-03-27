@@ -14,6 +14,6 @@
 		<input type="submit" value="로그인">
 	</form>
 	<br>
-	<input type="button" value="회원가입">
+	<a href="join">회원가입</a>
 </body>
 </html>

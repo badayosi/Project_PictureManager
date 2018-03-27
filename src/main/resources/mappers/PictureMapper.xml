@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgit.mapper.PictureMapper">
+	<insert id="upload">
+		insert into picture(id, fullname)
+		values(#{id}, #{fullname});
+	</insert>
+	<select id="selectById" resultType="PictureVO">
+		select *  from picture where id=#{id};
+	</select>
+	<delete id="delete">
+		delete from picture where fullname=#{fullname};
+	</delete>
+</mapper>
