@@ -1,5 +1,7 @@
 create database picture_manager;
+
 use picture_manager;
+
 create table member(
 	id varchar(50) not null,
 	pw varchar(50) not null,
@@ -8,6 +10,7 @@ create table member(
 	phone varchar(15),
 	primary key (id)
 );
+
 create table picture(
 	pno int not null auto_increment,
 	id varchar(50) not null,
